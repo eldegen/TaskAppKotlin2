@@ -1,5 +1,7 @@
 package com.pizza.taskappkotlin2.domain
 
+import android.text.Editable
+
 data class ShopItem(
     val name: String,
     val count: Int,

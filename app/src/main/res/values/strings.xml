@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">TaskAppKotlin2</string>
+    <string name="add_item_text">Add item</string>
+    <string name="delete_item_text">Delete item</string>
+    <string name="edit_item_text">Edit item</string>
+    <string name="get_item_text">Get item</string>
+    <string name="get_list_text">Get list</string>
 </resources>

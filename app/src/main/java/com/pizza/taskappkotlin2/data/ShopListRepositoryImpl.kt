@@ -16,15 +16,15 @@ class ShopListRepositoryImpl : ShopListRepository {
     }
 
     override fun deleteShopItem(shopItem: ShopItem) {
-        TODO("Not yet implemented")
+        shopList.removeAt(shopItem.id)
     }
 
     override fun editShopItem(shopItem: ShopItem) {
-        TODO("Not yet implemented")
+        shopList[0] = shopItem
     }
 
     override fun getShopItem(shopItemId: Int): ShopItem {
-        TODO("Not yet implemented")
+        return shopList[shopItemId]
     }
 
     override fun getShopList(): List<ShopItem> = shopList.toList()
