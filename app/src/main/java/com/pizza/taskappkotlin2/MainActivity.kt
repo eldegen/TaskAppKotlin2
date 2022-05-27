@@ -73,15 +73,15 @@ class MainActivity : AppCompatActivity() {
                 } catch (e: NumberFormatException) {
                     showToast("Dude, it's not a number")
                 }
-            } catch (e: IndexOutOfBoundsException) {
-                showToast("Incorrect index!")
+            } catch (e: RuntimeException) {
+                showToast(e.message.toString())
             }
         }
 
-        binding.btnGetList.setOnClickListener {
+        /*binding.btnGetList.setOnClickListener {
             viewModel.getShopList()
             showToast("Check your logs \n P.S: Tag: bruh")
             Log.d(TAG, "List: \n ${viewModel.getShopList()}")
-        }
+        }*/
     }
 }

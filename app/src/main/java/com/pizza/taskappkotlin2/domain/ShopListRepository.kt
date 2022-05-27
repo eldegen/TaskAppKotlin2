@@ -1,5 +1,7 @@
 package com.pizza.taskappkotlin2.domain
 
+import androidx.lifecycle.LiveData
+
 interface ShopListRepository {
 
     fun addShopItem(shopItem: ShopItem)
@@ -11,6 +13,6 @@ interface ShopListRepository {
     fun getShopItem(shopItemId: Int): ShopItem
 
     // TODO: Может быть изменен
-    fun getShopList(): List<ShopItem>
+    fun getShopList(): LiveData<List<ShopItem>>
 
 }

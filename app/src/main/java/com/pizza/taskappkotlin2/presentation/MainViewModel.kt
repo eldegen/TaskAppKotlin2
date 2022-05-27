@@ -15,7 +15,7 @@ class MainViewModel : ViewModel() {
     private val getShopItemUseCase = GetShopItemUseCase(repositoryImpl)
     private val getShopListUseCase = GetShopListUseCase(repositoryImpl)
 
-    val shopListLD = MutableLiveData<List<ShopItem>>()
+    val shopListLD = getShopListUseCase.getShopList()
 
     fun addShopItem(shopItem: ShopItem) {
         addShopItemUseCase.addShopItem(shopItem)
@@ -26,14 +26,11 @@ class MainViewModel : ViewModel() {
     }
 
     fun editShopItem(shopItem: ShopItem) {
+        val newItem = shopItem.copy(name = shopItem.name, count = shopItem.count)
         editShopItemUseCase.editShopItem(shopItem)
     }
 
     fun getShopItem(showItemId: Int): ShopItem {
         return getShopItemUseCase.getShopItem(showItemId)
-    }
-
-    fun getShopList(): List<ShopItem> {
-        return getShopListUseCase.getShopList()
     }
 }
