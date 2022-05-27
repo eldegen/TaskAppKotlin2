@@ -5,4 +5,7 @@
     <string name="edit_item_text">Edit item</string>
     <string name="get_item_text">Get item</string>
     <string name="get_list_text">Get list</string>
+    <string name="your_task_text">Your task</string>
+    <string name="count_text">Count</string>
+    <string name="save_text">Save</string>
 </resources>

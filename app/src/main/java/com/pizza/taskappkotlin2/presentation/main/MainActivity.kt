@@ -1,15 +1,12 @@
-package com.pizza.taskappkotlin2
+package com.pizza.taskappkotlin2.presentation.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.pizza.taskappkotlin2.databinding.ActivityMainBinding
 import com.pizza.taskappkotlin2.domain.ShopItem
 import com.pizza.taskappkotlin2.extension.showToast
-import com.pizza.taskappkotlin2.presentation.MainViewModel
 import java.lang.IndexOutOfBoundsException
 
 class MainActivity : AppCompatActivity() {

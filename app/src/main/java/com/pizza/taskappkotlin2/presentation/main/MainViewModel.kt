@@ -1,4 +1,4 @@
-package com.pizza.taskappkotlin2.presentation
+package com.pizza.taskappkotlin2.presentation.main
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
