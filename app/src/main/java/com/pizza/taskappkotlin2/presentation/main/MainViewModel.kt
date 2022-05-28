@@ -1,9 +1,10 @@
 package com.pizza.taskappkotlin2.presentation.main
 
-import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import com.pizza.taskappkotlin2.data.ShopListRepositoryImpl
-import com.pizza.taskappkotlin2.domain.*
+import com.pizza.taskappkotlin2.domain.models.ShopItem
+import com.pizza.taskappkotlin2.domain.useCases.*
 
 class MainViewModel : ViewModel() {
 
@@ -28,6 +29,10 @@ class MainViewModel : ViewModel() {
     fun editShopItem(shopItem: ShopItem) {
         val newItem = shopItem.copy(name = shopItem.name, count = shopItem.count)
         editShopItemUseCase.editShopItem(shopItem)
+    }
+
+    fun getShopList(): LiveData<List<ShopItem>> {
+        return shopListLD
     }
 
     fun getShopItem(showItemId: Int): ShopItem {

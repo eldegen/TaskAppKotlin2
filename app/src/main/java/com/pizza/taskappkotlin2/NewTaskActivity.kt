@@ -1,10 +1,9 @@
 package com.pizza.taskappkotlin2
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.pizza.taskappkotlin2.databinding.ActivityNewTaskBinding
-import com.pizza.taskappkotlin2.domain.ShopItem
+import com.pizza.taskappkotlin2.domain.models.ShopItem
 
 class NewTaskActivity : AppCompatActivity() {
 

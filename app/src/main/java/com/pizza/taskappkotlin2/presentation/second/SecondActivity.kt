@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.activity.result.contract.ActivityResultContracts.StartActivityForResult
 import com.pizza.taskappkotlin2.NewTaskActivity
 import com.pizza.taskappkotlin2.databinding.ActivitySecondBinding
-import com.pizza.taskappkotlin2.domain.ShopItem
+import com.pizza.taskappkotlin2.domain.models.ShopItem
 import com.pizza.taskappkotlin2.presentation.main.MainViewModel
 
 class SecondActivity : AppCompatActivity() {
@@ -20,12 +20,14 @@ class SecondActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySecondBinding
     private lateinit var adapter: SecondAdapter
 
-    private var bufferShopList = arrayListOf<ShopItem>()
+    private var bufferShopList = ArrayList<ShopItem>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySecondBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        Log.d("bruh", "onCreate: SecondActivity created")
 
         initViewModel()
         initObservers()
@@ -45,6 +47,8 @@ class SecondActivity : AppCompatActivity() {
         viewModel.shopListLD.observe(this) {
             Toast.makeText(this, it.toString(), Toast.LENGTH_SHORT).show()
             bufferShopList.addAll(it)
+            adapter.updateList(it)
+            Log.d("bruh", "initObservers:\n $bufferShopList")
         }
     }
 
@@ -59,6 +63,11 @@ class SecondActivity : AppCompatActivity() {
             val intent = Intent(this, NewTaskActivity::class.java)
             resultLauncher.launch(intent)
         }
+
+        adapter.onItemClick = {
+            viewModel.deleteShopItem(it)
+            Log.e("bruh", "initListeners: $bufferShopList")
+        }
     }
 
     private var resultLauncher = registerForActivityResult(StartActivityForResult()) { result ->
@@ -68,7 +77,6 @@ class SecondActivity : AppCompatActivity() {
 
             if (data != null) {
                 viewModel.addShopItem(data.getSerializableExtra("item") as ShopItem)
-                adapter.updateList(bufferShopList)
             }
         }
     }

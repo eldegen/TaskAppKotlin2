@@ -1,6 +1,5 @@
-package com.pizza.taskappkotlin2.domain
+package com.pizza.taskappkotlin2.domain.models
 
-import android.text.Editable
 import java.io.Serializable
 
 data class ShopItem(

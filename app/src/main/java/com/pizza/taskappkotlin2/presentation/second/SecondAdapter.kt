@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.pizza.taskappkotlin2.databinding.ItemTaskBinding
-import com.pizza.taskappkotlin2.domain.ShopItem
+import com.pizza.taskappkotlin2.domain.models.ShopItem
 
 class SecondAdapter(private var items: ArrayList<ShopItem>) : RecyclerView.Adapter<SecondAdapter.ViewHolder>() {
 
@@ -15,10 +15,17 @@ class SecondAdapter(private var items: ArrayList<ShopItem>) : RecyclerView.Adapt
         return ViewHolder(binding)
     }
 
+    var onItemClick: ((ShopItem) -> Unit)? = null
+
     override fun onBindViewHolder(holder: SecondAdapter.ViewHolder, position: Int) {
+        val shopItem = items[position]
+
         with(holder) {
             binding.tvTask.text = items[position].name
             binding.tvCount.text = items[position].count.toString()
+            binding.itemTask.setOnClickListener {
+                onItemClick?.invoke(shopItem)
+            }
         }
     }
 
@@ -28,7 +35,7 @@ class SecondAdapter(private var items: ArrayList<ShopItem>) : RecyclerView.Adapt
 
     // My methods
 
-    fun updateList(newList: ArrayList<ShopItem>) {
+    fun updateList(newList: List<ShopItem>) {
         items.clear()
         items.addAll(newList)
         notifyDataSetChanged()

@@ -2,7 +2,7 @@ package com.pizza.taskappkotlin2.data
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.pizza.taskappkotlin2.domain.ShopItem
+import com.pizza.taskappkotlin2.domain.models.ShopItem
 import com.pizza.taskappkotlin2.domain.ShopListRepository
 import java.lang.RuntimeException
 
